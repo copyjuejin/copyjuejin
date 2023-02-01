@@ -1,6 +1,5 @@
 <template>
   <div class="articleList">
-    <div class="header">
       <el-tabs
         v-model="activeName"
         type="border-card"
@@ -18,10 +17,9 @@
             <articelItem></articelItem>
             <articelItem></articelItem>
             <articelItem></articelItem>
-            <articelItem></articelItem></div
+            </div
         ></el-tab-pane>
       </el-tabs>
-    </div>
   </div>
 </template>
 
@@ -53,13 +51,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-tab-pane{
-  border:none;
-}
-.articleList {
-  width:700px;
-  .header {
-    padding: 0% 2%;
+/* 修复el-tabs意外出现蓝色边框问题bug*/
+::v-deep .el-tabs__item {
+    box-shadow: none !important;
   }
+.articleList {
+  padding: 0% 2%;
+  
 }
 </style>

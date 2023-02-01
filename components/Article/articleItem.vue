@@ -45,6 +45,12 @@ export default {
 <style lang="less" scoped>
 /*灰色文字*/
 @fontcolor: #86909c;
+/* 文字省略 */
+.textEllipsis() {
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
 .articleItem {
   display: flex;
   flex-direction: column;
@@ -85,23 +91,20 @@ export default {
         width: 100%;
         display: -webkit-box;
         overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
+        .textEllipsis()
       }
       .body {
         color: @fontcolor;
         display: -webkit-box;
         overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
+        .textEllipsis()
       }
       .bottom {
         display: flex;
         flex-direction: row;
         width: 30%;
         justify-content: space-between;
+        color: @fontcolor;
       }
     }
   }
