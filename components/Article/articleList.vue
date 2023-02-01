@@ -3,7 +3,7 @@
     <div class="header">
       <el-tabs
         v-model="activeName"
-        addable
+        type="border-card"
         @tab-click="handleClick"
         @tab-remove="tabMove"
         @tab-add="tabAdd"
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       tab: ["推荐", "最新", "热榜"],
-      activeName: "综合",
+      activeName: "推荐",
     };
   },
   methods: {
@@ -53,10 +53,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-container {
-  border: 1px solid black;
+.el-tab-pane{
+  border:none;
 }
 .articleList {
+  width:700px;
   .header {
     padding: 0% 2%;
   }

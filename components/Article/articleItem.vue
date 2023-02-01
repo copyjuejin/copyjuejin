@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 /*灰色文字*/
 @fontcolor: #86909c;
 .articleItem {
@@ -100,7 +100,7 @@ export default {
       .bottom {
         display: flex;
         flex-direction: row;
-        width: 20%;
+        width: 30%;
         justify-content: space-between;
       }
     }
