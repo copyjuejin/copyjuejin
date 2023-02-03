@@ -35,7 +35,6 @@
 export default {
   data() {
     return {
-      fits: ["fill", "contain", "cover", "none", "scale-down"],
       url: "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13af4ba28bc14ca5a6e09d405b26c3d8~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
     };
   },

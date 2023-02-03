@@ -11,13 +11,13 @@
       <!-- 侧边栏 -->
       <el-col :span="4">
         <!-- 签到 -->
-        <div class="content sign"></div>
+        <div class="sign"></div>
         <!-- 广告 -->
-        <div class="content advertisement"></div>
+        <div class="advertisement"></div>
         <!-- 二维码 -->
-        <div class="content link"></div>
+        <div class="link"></div>
         <!-- 作者榜 -->
-        <div class="content author"></div>
+        <div class="author"></div>
       </el-col>
     </el-row>
   </div>
@@ -52,7 +52,7 @@ export default Vue.extend({
   fetch({ store }) {},
 });
 </script>
-<style lang="less" scoped>
+<style lang="less" >
 @bg-color: white;
 .box(@h){
     margin-bottom: 20px;
@@ -60,6 +60,10 @@ export default Vue.extend({
     background: @bg-color;
     box-shadow: 1px 1px 3px 0px #86909c57;
     height: @h;
+}
+*{
+  padding: 0;
+  margin:0;
 }
 .main {
   margin-top: 20px;
