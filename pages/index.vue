@@ -27,35 +27,15 @@ export default Vue.extend({
 });
 </script>
 <style lang="less">
-@bg-color: white;
-.box(@h) {
-  margin-bottom: 20px;
-  min-height: 60px;
-  background: @bg-color;
-  box-shadow: 1px 1px 3px 0px #86909c57;
-  height: @h;
-}
 * {
   padding: 0;
   margin: 0;
 }
-container{
+.container{
   background-color: #f4f4f4; 
   height:1000px; 
 }
 .main {
   margin-top: 20px;
-  .sign {
-    .box(80px);
-  }
-  .advertisement {
-    .box(200px);
-  }
-  .link {
-    .box(74px);
-  }
-  .author {
-    .box(150px);
-  }
 }
 </style>
