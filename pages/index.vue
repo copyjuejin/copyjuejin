@@ -20,6 +20,7 @@
         <div class="author"></div>
       </el-col>
     </el-row>
+    <authorList></authorList>a>
   </div>
 </template>
 
@@ -27,6 +28,7 @@
 import Vue from "vue";
 import articleTab from "../components/Article/articleTab.vue";
 import articleList from "../components/Article/articleList.vue";
+import authorList from "~/components/Author/authorList.vue";
 export default Vue.extend({
   components: { articleTab, articleList },
   name: "IndexPage",
