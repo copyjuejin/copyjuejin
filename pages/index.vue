@@ -15,8 +15,8 @@ export default {
   name: "IndexPage",
  
   async asyncData({$axios}) {
-    let a=await $axios({url:"http://101.34.46.50:1337/articles"})
-    console.log(a.data[0])
+    let a=await $axios({url:"/api/articles"})
+    
     return {info:a.data[0]}
     
   },

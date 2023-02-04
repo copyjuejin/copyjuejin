@@ -3,8 +3,8 @@
       <!-- 功能块 -->
       <div class="function">
          <ul>
-            <li><i class="el-icon-chicken"></i></li>
-            <li><i class="el-icon-chat-dot-square"></i></li>
+            <li><i class="el-icon-chicken"></i><span>{{ info.like }}</span></li>
+            <li><i class="el-icon-chat-dot-square"></i><span>555</span></li>
             <li><i class="el-icon-star-on"></i></li>
             <li><i class="el-icon-share"></i></li>
             <li><i class="el-icon-warning"></i></li>
@@ -13,13 +13,19 @@
       </div>
       <!-- 文章 -->
       <div class="detail">
-      <h1>{{ info.title }}</h1>
+
+         <h1>{{ info.title }}</h1>
+         <div class="writerBasic"><img :src="writerJpg">
+            {{ info.writer }}<br>{{ info.time }}</div>
+
          <div id="ar"></div>
          <!-- <article></article> -->
          <!-- 相关推荐 -->
          <!-- <more></more> -->
       </div>
       <div class="writer">
+         <img :src="writerJpg">
+         {{ info.writer }}<br>{{ info.time }}
       </div>
       <div class="ad1"></div>
       <div class="ad2"></div>
@@ -33,16 +39,23 @@
 
 export default {
    name: '',
-   props:["info"],
+   props: ["info"],
+   data() {
+      return {
+         writerJpg: "/api",
+      }
+   },
    mounted() {
-
+      // 从index组件获取到文章内容并给markdown-it插件渲染
       var md = require('markdown-it')({
-  html: true,
-  linkify: true,
-  typographer: true
-});
-var result = md.render(this.info.body);
-document.getElementById("ar").innerHTML=result
+         html: true,
+         linkify: true,
+         typographer: true
+      });
+      var result = md.render(this.info.body);
+      document.getElementById("ar").innerHTML = result
+      this.writerJpg += this.info.writerJpg[0].url
+      console.log(this.writerJpg)
    },
 }
 
@@ -54,15 +67,16 @@ document.getElementById("ar").innerHTML=result
 .all {
    width: 1210px;
    margin: 0 auto;
-   
-   
+
+
 
 
 
    .function {
-    margin-left: -45px;
+      margin-left: -45px;
       margin-top: 35px;
       float: left;
+
 
       li {
          margin-top: 20px;
@@ -76,11 +90,30 @@ document.getElementById("ar").innerHTML=result
          text-align: center;
          line-height: 50px;
          box-shadow: 10px;
+         position: relative;
 
          &:nth-child(5) {
             margin-top: 45px;
          }
+
+         span {
+            
+            height: 15px;
+            position: absolute;
+            left: 35px;
+            top: -5px;
+            font-size: 5px;
+            
+            background-color: #666565;
+            line-height: 13px;
+            color: #ffffff;
+            border-radius: 5px;
+         }
+
       }
+
+
+
    }
 
    .detail {
@@ -92,6 +125,20 @@ document.getElementById("ar").innerHTML=result
       line-height: 30px;
       font-size: 20px;
       padding: 25px;
+
+      .writerBasic {
+         height: 50px;
+         width: 500px;
+         display: inline-block;
+         margin: 15px 0;
+
+         img {
+            height: 50px;
+            float: left;
+            margin-right: 10px;
+         }
+
+      }
    }
 
    .writer {
