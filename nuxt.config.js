@@ -23,7 +23,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -37,7 +37,21 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
   ],
+ 
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    proxy: true,
+    
+  },
+ 
+  proxy: {
+    '/api': {
+      target: 'http://101.34.46.50:1337', // 目标服务器ip
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

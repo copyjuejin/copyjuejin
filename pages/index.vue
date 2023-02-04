@@ -1,20 +1,39 @@
 <template>
-  <div>
-    <articleTab></articleTab>
-    <articleList></articleList>
+  <div class="app">
+
+    <Header></Header>
+    <ArticleDetail :info="info"></ArticleDetail>
+
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import articleTab from "../components/Article/articleTab.vue";
-import articleList from "../components/Article/articleList.vue";
-import articelItem from "../components/Article/articleItem.vue";
-export default Vue.extend({
-  components: { articleTab,articleList,articelItem},
+<script lang="js">
+import Header from "./Header.vue";
+import ArticleDetail from "./ArticleDetail.vue";
+export default {
+  components: { Header, ArticleDetail },
   name: "IndexPage",
-});
-</script>
-<style lang="less" scoped >
+ 
+  async asyncData({$axios}) {
+    let a=await $axios({url:"http://101.34.46.50:1337/articles"})
+    console.log(a.data[0])
+    return {info:a.data[0]}
+    
+  },
 
+};
+</script>
+<style lang="less">
+* {
+  margin: 0;
+  padding: 0;
+  /* css3盒子模型 */
+  box-sizing: border-box;
+
+  .app {
+    background-color: #f4f4f5;
+    display: inline-block;
+    width: 100%;
+  }
+}
 </style>
