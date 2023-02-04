@@ -9,15 +9,28 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "consola": "*",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.25.3",
+    "deepmerge": "^4.2.2",
     "element-ui": "^2.15.10",
     "markdown-it": "^13.0.1",
     "nuxt": "^2.15.8",
+    "prismjs": "^1.29.0",
+    "rehype-document": "^6.1.0",
+    "rehype-format": "^4.0.1",
+    "rehype-sanitize": "^5.0.1",
+    "rehype-slug": "^5.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "remark-toc": "^8.0.1",
+    "unified": "^10.1.2",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
