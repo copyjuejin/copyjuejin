@@ -30,22 +30,12 @@ import articleList from "../components/Article/articleList.vue";
 export default Vue.extend({
   components: { articleTab, articleList },
   name: "IndexPage",
-
-  data() {
-    return {};
-  },
-  //middleware:'auth',//页面层级中间件定义
-  middleware(context) {},
-
-  //参数的有效性
-  validate({ params, query }) {
-    return true;
-  },
-
-  //读数据，返回给组件
-  asyncData(context) {
-    //异步业务逻辑,请求服务端数据
-    return {};
+ 
+  async asyncData({$axios}) {
+    let a=await $axios({url:"/api/articles"})
+    
+    return {info:a.data[0]}
+    
   },
 
   //读数据，返回vuex
