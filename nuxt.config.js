@@ -65,5 +65,5 @@ export default {
   build: {
     transpile: [/^element-ui/],
   },
-
+  buildModules: ['@nuxt/typescript-build'] 
 }
