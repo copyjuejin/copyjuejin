@@ -49,8 +49,13 @@ export default {
  
   proxy: {
     '/api': {
-      target: 'http://101.34.46.50:1337', // 目标服务器ip
-    }
+      target: 'http://101.34.46.50:1337',
+      pathRewrite: {
+        '^/api': '',  
+        changeOrigin: true // 是否跨域
+      }
+    },
+    
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
