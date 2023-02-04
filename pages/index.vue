@@ -33,12 +33,7 @@ export default Vue.extend({
   components: { articleTab, articleList },
   name: "IndexPage",
  
-  async asyncData({$axios}) {
-    let a=await $axios({url:"/api/articles"})
-    
-    return {info:a.data[0]}
-    
-  },
+  
 
   //读数据，返回vuex
   fetch({ store }) {},
