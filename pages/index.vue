@@ -28,7 +28,7 @@
 import Vue from "vue";
 import articleTab from "../components/Article/articleTab.vue";
 import articleList from "../components/Article/articleList.vue";
-import authorList from "~/components/Author/authorList.vue";
+import authorList from "../components/Author/authorList.vue";
 export default Vue.extend({
   components: { articleTab, articleList },
   name: "IndexPage",
