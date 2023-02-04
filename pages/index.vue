@@ -1,39 +1,83 @@
 <template>
-  <div class="app">
+  <div style="background-color: #f4f4f4">
+    <el-row type="flex">
+      <!-- 文章tabs -->
+      <el-col :span="24"><articleTab></articleTab></el-col>
+    </el-row>
 
-    <Header></Header>
-    <ArticleDetail :info="info"></ArticleDetail>
-
+    <el-row type="flex" class="main" :gutter="10">
+      <!-- 文章列表 -->
+      <el-col :span="16" :offset="2"><articleList></articleList></el-col>
+      <!-- 侧边栏 -->
+      <el-col :span="4">
+        <!-- 签到 -->
+        <div class="sign"></div>
+        <!-- 广告 -->
+        <div class="advertisement"></div>
+        <!-- 二维码 -->
+        <div class="link"></div>
+        <!-- 作者榜 -->
+        <div class="author"></div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
-<script lang="js">
-import Header from "./Header.vue";
-import ArticleDetail from "./ArticleDetail.vue";
-export default {
-  components: { Header, ArticleDetail },
+<script lang="ts">
+import Vue from "vue";
+import articleTab from "../components/Article/articleTab.vue";
+import articleList from "../components/Article/articleList.vue";
+export default Vue.extend({
+  components: { articleTab, articleList },
   name: "IndexPage",
- 
-  async asyncData({$axios}) {
-    let a=await $axios({url:"/api/articles"})
-    
-    return {info:a.data[0]}
-    
+
+  data() {
+    return {};
+  },
+  //middleware:'auth',//页面层级中间件定义
+  middleware(context) {},
+
+  //参数的有效性
+  validate({ params, query }) {
+    return true;
   },
 
-};
-</script>
-<style lang="less">
-* {
-  margin: 0;
-  padding: 0;
-  /* css3盒子模型 */
-  box-sizing: border-box;
+  //读数据，返回给组件
+  asyncData(context) {
+    //异步业务逻辑,请求服务端数据
+    return {};
+  },
 
-  .app {
-    background-color: #f4f4f5;
-    display: inline-block;
-    width: 100%;
+  //读数据，返回vuex
+  fetch({ store }) {},
+});
+</script>
+<style lang="less" >
+@bg-color: white;
+.box(@h){
+    margin-bottom: 20px;
+    min-height: 60px;
+    background: @bg-color;
+    box-shadow: 1px 1px 3px 0px #86909c57;
+    height: @h;
+}
+*{
+  padding: 0;
+  margin:0;
+}
+.main {
+  margin-top: 20px;
+  .sign {
+    .box(80px);
+  }
+  .advertisement {
+    .box(200px);
+  }
+  .link {
+    .box(74px);
+  }
+  .author {
+    .box(150px);
   }
 }
 </style>
