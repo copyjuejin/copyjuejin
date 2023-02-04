@@ -2,6 +2,7 @@
   <div>
     <articleTab></articleTab>
     <articleList></articleList>
+    <authorList></authorList>a>
   </div>
 </template>
 
@@ -10,8 +11,9 @@ import Vue from "vue";
 import articleTab from "../components/Article/articleTab.vue";
 import articleList from "../components/Article/articleList.vue";
 import articelItem from "../components/Article/articleItem.vue";
+import authorList from "~/components/Author/authorList.vue";
 export default Vue.extend({
-  components: { articleTab,articleList,articelItem},
+  components: { articleTab, articleList, articelItem, authorList },
   name: "IndexPage",
 });
 </script>
