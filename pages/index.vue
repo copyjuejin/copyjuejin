@@ -4,8 +4,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import ArticleRendering from "../components/Article/ArticleRendering.vue";
+export default {
+  
+}
 </script>
 <style lang="less" scoped >
 

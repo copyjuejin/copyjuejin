@@ -164,7 +164,6 @@ export default {
   position: sticky;
 
   ul {
-    @apply bg-black;
     li {
       white-space: break-spaces;
       white-space: nowrap;
@@ -173,9 +172,6 @@ export default {
       transition: 0.5s;
       padding: 3px 5px 3px 1rem;
 
-      &.active {
-        @apply duration-300 bg-black scale-[1.01];
-      }
     }
 
     li:hover {

@@ -1,0 +1,30 @@
+pre{
+    position: relative;
+    border-radius: 5px;
+    border: 2px solid #2d2d2d;
+}
+
+pre .prism-copy-button{
+    display: none;
+    position:absolute;
+    right: 0;
+    top: 0;
+    border-radius: 5px;
+    margin: 1px;
+    /* border-radius: 5px; */
+    color: rgb(255, 202, 40);
+    background-color: rgba(0,0,0,0);
+}
+pre .prism-lang-button{
+    position:absolute;
+    left: 0.2rem;
+    top: 0.1rem;
+    margin: 1px;
+    border: inherit;
+    color: rgb(255, 202, 40);
+    background-color: rgba(0,0,0,0);
+}
+pre.showButton  button.prism-copy-button {
+    display: block;
+}
+
