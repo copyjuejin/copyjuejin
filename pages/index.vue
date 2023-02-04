@@ -26,8 +26,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import articleTab from "../components/Article/articleTab.vue";
-import articleList from "../components/Article/articleList.vue";
+import articleTab from "./Article/articleTab.vue";
+import articleList from "./Article/articleList.vue";
 import authorList from "../components/Author/authorList.vue";
 export default Vue.extend({
   components: { articleTab, articleList },

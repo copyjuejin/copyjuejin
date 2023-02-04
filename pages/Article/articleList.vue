@@ -13,10 +13,10 @@
           :label="item"
           :name="item"
           ><div>
-            <articelItem></articelItem>
-            <articelItem></articelItem>
-            <articelItem></articelItem>
-            <articelItem></articelItem>
+            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
+            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
+            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
+            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
             </div
         ></el-tab-pane>
       </el-tabs>
