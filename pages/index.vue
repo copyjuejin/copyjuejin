@@ -18,10 +18,11 @@
 <script lang="ts">
 import Vue from "vue";
 import articleTab from "./Article/articleTab.vue";
+import ArticleRendering from "./Article/ArticleRendering.vue";
 import articleList from "./Article/articleList.vue";
 import authorList from "./Author/authorList.vue";
 export default Vue.extend({
-  components: { articleTab, articleList, authorList },
+  components: { articleTab, articleList, authorList, ArticleRendering},
   name: "IndexPage",
 
 });
@@ -32,8 +33,8 @@ export default Vue.extend({
   margin: 0;
 }
 .container{
-  background-color: #f4f4f4; 
-  height:1000px; 
+  background-color: #f4f4f4;
+  height:1000px;
 }
 .main {
   margin-top: 20px;
