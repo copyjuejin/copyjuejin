@@ -4,15 +4,13 @@
       class="tabs"
       v-model="activeName"
       @tab-click="handleClick"
-      @tab-remove="tabMove"
-      @tab-add="tabAdd"
     >
       <el-tab-pane
         class="pane"
-        v-for="(item, index) in tab"
-        :key="index"
-        :label="item"
-        :name="item"
+        v-for="(item, index) in tabs"
+        :key="item.id"
+        :label="item.tabs"
+        :name="item.tabs"
       ></el-tab-pane>
     </el-tabs>
   </div>
@@ -23,34 +21,28 @@ export default {
   name: "articleTab",
   data() {
     return {
-      tab: [
-        "综合",
-        "关注",
-        "后端",
-        "前端",
-        "Android",
-        "ios",
-        "人工智能",
-        "开发工具",
-        "代码人生",
-        "阅读",
-      ],
-      activeName: "综合",
+      index:1,
     };
   },
   methods: {
     // 标签被点击
     handleClick(tab, event) {
-      console.log(tab, event);
+      //console.log(tab.index)
+      this.index=tab.index//获取tabs数组坐标
+      this.$store.dispatch('article/A_UPDATE_INDEX',{index:this.index})//传递到vuex
     },
-    // 删除标签
-    tabMove() {
-      console.log("删除标签");
+  },
+  computed: {
+    tabs() {
+      return this.$store.state.article.tabs;//从vuex中读取tabs数据
     },
-    // 添加标签
-    tabAdd() {
-      console.log("添加标签");
-    },
+    activeName:{
+      get(){
+        return this.tabs[0].tabs//默认值
+      },
+      //点击标签时改变activeName
+      set(){}
+    }
   },
 };
 </script>

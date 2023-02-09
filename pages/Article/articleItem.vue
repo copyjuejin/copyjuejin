@@ -1,25 +1,25 @@
 <template>
   <div class="articleItem">
     <div class="header">
-      <span>作者名</span>
+      <span>{{ listItem.writer }}</span>
       <span class="line">|</span>
-      <span class="date">日期</span>
+      <span class="date">{{ time }}</span>
       <span class="line">|</span>
-      <span class="tab">前端</span>
+      <span class="tab">{{ listItem.tab }}</span>
     </div>
     <div class="main">
       <div class="left">
-        <div class="title">一行代码,让网页变为黑白配色</div>
+        <div class="title">{{ listItem.title }}</div>
         <div class="body">
-          让网页变为黑白配色，是个常见的诉求。而且往往是突如其来的诉求，是无法预知的。当发生这样的需求时，我们需要迅速完成变更发布。
+          {{ listItem.intro }}
         </div>
         <div class="bottom">
-          <i class="el-icon-view">&nbsp4.9w</i>
-          <i class="el-icon-chicken">&nbsp474</i>
-          <i class="el-icon-chat-round">&nbsp123</i>
+          <i class="el-icon-view">&nbsp{{ listItem.read }}</i>
+          <i class="el-icon-chicken">&nbsp{{ listItem.like }}</i>
+          <i class="el-icon-chat-round">&nbsp{{ listItem.comment }}</i>
         </div>
       </div>
-      <div class="right">
+      <div class="right" v-if="show_img">
         <el-image
           style="width: 150px; height: 80px"
           :src="url"
@@ -32,10 +32,33 @@
 
 <script>
 export default {
+  props: ["listItem"],
   data() {
     return {
-      url: "https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13af4ba28bc14ca5a6e09d405b26c3d8~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?",
+      
     };
+  },
+  computed: {
+    //是否显示预览图
+    show_img() {
+      if (this.listItem.preview === null) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    //预览图地址
+    url() {
+      if (this.listItem.preview != null) {
+        return "/api" + this.listItem.preview.url;
+      }else{
+        return null
+      }
+    },
+    //日期格式化
+    time(){
+      return this.listItem.time.slice(0,10)
+    }
   },
 };
 </script>
@@ -76,11 +99,13 @@ export default {
     flex-direction: row;
     padding-bottom: 1%;
     border-bottom: 1px solid #86909c2f;
+    justify-content: space-between;
     .left {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-content: center;
+      height: 100px;
       .title {
         font-weight: 700;
         font-size: 16px;
@@ -89,13 +114,13 @@ export default {
         width: 100%;
         display: -webkit-box;
         overflow: hidden;
-        .textEllipsis()
+        .textEllipsis();
       }
       .body {
         color: @fontcolor;
         display: -webkit-box;
         overflow: hidden;
-        .textEllipsis()
+        .textEllipsis();
       }
       .bottom {
         display: flex;
