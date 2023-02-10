@@ -100,7 +100,12 @@
 
 <script>
 export default {
-
+    name:'authorList',
+    data() {
+        return {
+            show:false
+        }
+    },
 }
 </script>
 
