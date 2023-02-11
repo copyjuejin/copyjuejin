@@ -1,15 +1,15 @@
 <template>
 <!-- 右侧信息栏 -->
 <div class="sidebar">
-    <!-- 广告 -->
+    <!-- 广告1 -->
     <div class="sidebar__block">
         <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b6a58397c77485495a051142f1d863d~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?" alt="">
     </div>
-    <!-- 广告 -->
+    <!-- 广告2 -->
     <div class="sidebar__block">
         <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a88a1ea956734105a5b002dfb48840cb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?" alt="">
     </div>
-    <!-- 掘金官网链接 -->
+    <!-- 掘金官网 -->
     <div class="block-body">
         <img src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/home.59780ae.png" alt="">
         <div class="block-body-text">
@@ -49,52 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="author-list">
-            完整榜单&nbsp;&nbsp;>
-        </div>
     </div>
-
-    <!-- 悬浮信息栏 -->
-    <transition name="el-fade-in-linear" >
-    <div class="suspended" v-show="show" ref="suspendBox">
-        <div class="sidebar__block user-top ">
-            <div class="header-block">🎖️作者榜</div>
-            <div class="user-list">
-                <div class="item">
-                    <div class="item__img-box">
-                        <img src="https://p3-passport.byteacctimg.com/img/mosaic-legacy/3792/5112637127~300x300.image" alt="">
-                    </div>
-                    <div class="item__user-info">
-                        小明同学
-                        <img src="~/assets/img/lv-2.png" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img-box">
-                        <img src="https://p9-passport.byteacctimg.com/img/mosaic-legacy/3793/3131589739~300x300.image" alt="">
-                    </div>
-                    <div class="item__user-info">
-                        工匠若水
-                        <img src="~/assets/img/lv-2.png" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img-box">
-                        <img src="https://p9-passport.byteacctimg.com/img/mosaic-legacy/3796/2975850990~300x300.image" alt="">
-                    </div>
-                    <div class="item__user-info">
-                        固体物质搬运工
-                        <img src="~/assets/img/lv-2.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="author-list">
-                完整榜单&nbsp;&nbsp;>
-            </div>
-        </div>
-    </div>
-    </transition>
-
 </div>
 </template>
 
@@ -233,15 +188,5 @@ export default {
 }
 .user-body{
     background: #fff;
-}
-//悬浮
-.suspended{
-    width: 240px;
-    position: fixed;
-    top: 130px;
-    transition: all .3s linear;
-}
-.suspended>div{
-    margin-bottom: 20px;
 }
 </style>
