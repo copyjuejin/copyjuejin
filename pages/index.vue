@@ -28,9 +28,12 @@ export default Vue.extend({
 });
 </script>
 <style lang="less">
+
 * {
   padding: 0;
   margin: 0;
+  
+
 }
 .container{
   background-color: #f4f4f4;

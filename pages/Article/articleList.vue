@@ -13,7 +13,7 @@
           :label="item"
           :name="item"
           ><div>
-            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
+            <NuxtLink :to="{path:'/Detail',query:{id:1,sort:1}}" target='_blank'><articelItem></articelItem></NuxtLink>
             <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
             <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
             <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>

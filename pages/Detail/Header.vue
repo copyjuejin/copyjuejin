@@ -1,5 +1,6 @@
 <template>
-   <div class="Header">
+   <div class="all">
+   <div class="header"></div>
    </div>
     
 </template>
@@ -9,11 +10,16 @@ export default {
 };
 </script>
 <style lang='less' scoped>
-.Header{
-    width: 100%;
+.all{
+   width: 100%;
+   height: 55px;
+   background-color: #000000;
+   
+.header{
+    width: 1300px;
     height: 55px;
-    background-color: #ffffff;
-    margin-bottom: 25px;
-}
+    
+    
+}}
 
 </style>
