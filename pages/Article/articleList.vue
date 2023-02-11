@@ -1,29 +1,23 @@
 <template>
   <div class="articleList">
-      <el-tabs
-        v-model="activeName"
-        type="border-card"
-        @tab-click="handleClick"
-        @tab-remove="tabMove"
-        @tab-add="tabAdd"
-      >
-        <el-tab-pane
-          v-for="(item, index) in tab"
-          :key="index"
-          :label="item"
-          :name="item"
-          ><div>
-            <NuxtLink :to="{path:'/Detail',query:{id:1,sort:1}}" target='_blank'><articelItem></articelItem></NuxtLink>
-            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
-            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
-            <NuxtLink to="/Detail"><articelItem></articelItem></NuxtLink>
-            </div
-        ></el-tab-pane>
-      </el-tabs>
+    <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
+      <el-tab-pane
+        v-for="(tab, index) in tab"
+        :key="index"
+        :label="tab"
+        :name="tab"
+        ><div v-for="(item, index) in articleList" :key="index">
+            <NuxtLink to="/Detail">
+              <articelItem :listItem="item"></articelItem>
+            </NuxtLink>
+          </div>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations, mapAction } from "vuex";
 import articelItem from "../Article/articleItem.vue";
 export default {
   components: { articelItem },
@@ -33,18 +27,23 @@ export default {
       activeName: "推荐",
     };
   },
+  computed: {
+    tabs() {
+      return this.$store.state.article.tabs; //从vuex中读取tabs数据
+    },
+    index() {
+      return this.$store.state.article.index;
+    },
+    articleList() {
+      //console.log(this.tabs, this.index);
+      return this.tabs[this.index].articles;
+    },
+  },
+
   methods: {
     // 标签被点击
     handleClick(tab, event) {
       console.log(tab, event);
-    },
-    // 删除标签
-    tabMove() {
-      console.log("删除标签");
-    },
-    // 添加标签
-    tabAdd() {
-      console.log("添加标签");
     },
   },
 };
@@ -53,10 +52,9 @@ export default {
 <style lang="less" scoped>
 /* 修复el-tabs意外出现蓝色边框问题bug*/
 ::v-deep .el-tabs__item {
-    box-shadow: none !important;
-  }
+  box-shadow: none !important;
+}
 .articleList {
   padding: 0% 2%;
-  
 }
 </style>
