@@ -7,7 +7,7 @@
         :label="tab"
         :name="tab"
         ><div v-for="(item, index) in articleList" :key="index">
-            <NuxtLink to="/Detail">
+            <NuxtLink :to="{path:'/Detail',query:{id:1,sort:1}}" target='_blank'>
               <articelItem :listItem="item"></articelItem>
             </NuxtLink>
           </div>

@@ -1,5 +1,6 @@
 <template> 
 <div class="all">
+  
   <ArticleTab></ArticleTab>
    <div class="app">
 
@@ -23,6 +24,12 @@ export default {
       return { info: a.data, more: b.data.articles }
 
    },
+   async fetch({$axios,store,app}){
+    let res=await $axios({url:"/api/article-tabs"})
+    store.dispatch("article/A_UPDATE_TABS",{
+        tabs:res.data
+    })
+  }
 
 };
 </script>
