@@ -15,7 +15,13 @@
         </div>
         <div class="bottom">
           <i class="el-icon-view">&nbsp{{ listItem.read }}</i>
-          <i class="el-icon-chicken">&nbsp{{ listItem.like }}</i>
+          <div class="like">
+           <img
+            style="width: 14px; height: 14px"
+            src="../../assets/img/like.png"
+            >
+            &nbsp{{ listItem.like }}</img>
+            </div>
           <i class="el-icon-chat-round">&nbsp{{ listItem.comment }}</i>
         </div>
       </div>
@@ -125,9 +131,15 @@ export default {
       .bottom {
         display: flex;
         flex-direction: row;
-        width: 30%;
+        width: 180px;
         justify-content: space-between;
         color: @fontcolor;
+        align-items: center;
+        .like{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
       }
     }
   }

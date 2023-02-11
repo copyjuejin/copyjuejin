@@ -1,14 +1,10 @@
-<template> 
-<div class="all">
-  
-  <ArticleTab></ArticleTab>
-   <div class="app">
-
-     
+<template>
+  <div class="all">
+    <ArticleTab></ArticleTab>
+    <div class="app">
       <ArticleDetail :info="info" :more="more"></ArticleDetail>
-
-   </div>
-   </div>
+    </div>
+  </div>
 </template>
 
 <script lang="js">
@@ -22,7 +18,6 @@ export default {
       let a = await $axios({ url: `/api/articles/${query.id}` })
       let b = await $axios({ url: `/api/article-tabs/${query.sort}?_limit=5` })
       return { info: a.data, more: b.data.articles }
-
    },
    async fetch({$axios,store,app}){
     let res=await $axios({url:"/api/article-tabs"})
@@ -35,28 +30,28 @@ export default {
 </script>
 <style lang="less">
 * {
-   margin: 0px;
-   padding: 0px;
-   /* css3盒子模型 */ 
-   box-sizing: border-box;
-   a{
-      color: black;
-      text-decoration: none;
-   }
-.all{
-   background-color: #f4f4f5;
-   width: 100%;
-   display: inline-block;
-  
-   .app {
+  margin: 0px;
+  padding: 0px;
+  /* css3盒子模型 */
+  box-sizing: border-box;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  .all {
+    background-color: #f4f4f5;
+    width: 100%;
+    display: inline-block;
+
+    .app {
       width: 1500px;
-       margin: 0 auto;
+      margin: 0 auto;
       overflow-x: hidden;
 
       img {
-         width: 100%;
+        width: 100%;
       }
-   }
-}
+    }
+  }
 }
 </style>

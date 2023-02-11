@@ -7,7 +7,7 @@
         :label="tab"
         :name="tab"
         ><div v-for="(item, index) in articleList" :key="index">
-            <NuxtLink :to="{path:'/Detail',query:{id:1,sort:1}}" target='_blank'>
+            <NuxtLink :to="{path:'/Detail',query:{id:item.id,sort:item.article_tab}}" target='_blank'>
               <articelItem :listItem="item"></articelItem>
             </NuxtLink>
           </div>
@@ -31,12 +31,12 @@ export default {
     tabs() {
       return this.$store.state.article.tabs; //从vuex中读取tabs数据
     },
-    index() {
+    headerIndex() {
       return this.$store.state.article.index;
     },
     articleList() {
       //console.log(this.tabs, this.index);
-      return this.tabs[this.index].articles;
+      return this.tabs[this.headerIndex].articles;
     },
   },
 
