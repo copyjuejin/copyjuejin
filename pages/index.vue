@@ -22,35 +22,49 @@ import ArticleRendering from "./Article/ArticleRendering.vue";
 import articleList from "./Article/articleList.vue";
 import authorList from "./Author/authorList.vue";
 export default Vue.extend({
-  components: { articleTab, articleList, authorList, ArticleRendering},
+  components: { articleTab, articleList, authorList, ArticleRendering },
   name: "IndexPage",
   data() {
-    return {
-      
-    }
+    return {};
   },
-  methods:{
+  computed: {
+    index() {
+      return this.$store.state.index;
+    },
+    sortIndex: {
+      get() {
+       /*  let res2 = this.$axios({
+          url: `/api/articles?article_tab=${this.index}`,
+        });
+        console.log(res2); */
+        return this.$store.state.sortIndex;
+      },
+      set() {},
+    },
+  },
+  methods: {},
+  async fetch({ $axios, store, app }) {
+    let res = await $axios({ url: "/api/article-tabs" });
 
+    let res1 = await $axios({ url: "/api/syntheses" });
+
+    store.dispatch("article/A_UPDATE_TABS", {
+      tabs: res.data,
+    });
+    store.dispatch("article/A_UPDATE_SORT", {
+      sortTab: res1.data,
+    });
   },
- async fetch({$axios,store,app}){
-    let res=await $axios({url:"/api/article-tabs"})
-    store.dispatch("article/A_UPDATE_TABS",{
-        tabs:res.data
-    })
-  }
 });
 </script>
 <style lang="less">
-
 * {
   padding: 0;
   margin: 0;
-  
-
 }
-.container{
+.container {
   background-color: #f4f4f4;
-  height:1000px;
+  height: 1000px;
 }
 .main {
   margin-top: 20px;

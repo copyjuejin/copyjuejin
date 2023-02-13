@@ -30,6 +30,7 @@ export default {
       //console.log(tab.index)
       this.index=tab.index//获取tabs数组坐标
       this.$store.dispatch('article/A_UPDATE_INDEX',{index:this.index})//传递到vuex
+      this.$store.dispatch('article/A_UPDATE_ACTIVENAME',{sortActiveName:'推荐'})
     },
   },
   computed: {
@@ -55,6 +56,10 @@ export default {
 /* 去掉el-tab-pane切换时的蓝色下划线*/
 /deep/ .el-tabs__active-bar {
   background-color: transparent;
+}
+/* 修复el-tabs意外出现蓝色边框问题bug*/
+::v-deep .el-tabs__item {
+  box-shadow: none !important;
 }
 
 .artcleTab {
