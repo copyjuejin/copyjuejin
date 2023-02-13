@@ -67,7 +67,8 @@ export default {
   components: { ArticleRendering },
 };
 </script>
-<style lang="less" scoped>
+<style lang='less' scoped>
+@bgcolor:#ffffff;
 .all {
   width: 1500px;
 
@@ -93,8 +94,38 @@ export default {
       box-shadow: 10px;
       position: relative;
 
-      &:nth-child(5) {
-        margin-top: 45px;
+      li {
+         margin-top: 20px;
+         margin-bottom: 20px;
+         list-style-type: none;
+         font-size: 25px;
+         width: 50px;
+         height: 50px;
+         border-radius: 50%;
+         background-color: @bgcolor;
+         text-align: center;
+         line-height: 50px;
+         box-shadow: 10px;
+         position: relative;
+
+         &:nth-child(5) {
+            margin-top: 45px;
+         }
+
+         span {
+
+            height: 15px;
+            position: absolute;
+            left: 35px;
+            top: -5px;
+            font-size: 5px;
+
+            background-color: #666565;
+            line-height: 13px;
+            color: @bgcolor;
+            border-radius: 5px;
+         }
+
       }
 
       span {
@@ -104,29 +135,41 @@ export default {
         top: -5px;
         font-size: 5px;
 
-        background-color: #666565;
-        line-height: 13px;
-        color: #ffffff;
-        border-radius: 5px;
+
+   }
+
+   .detail {
+      margin-left: 35px;
+
+      float: left;
+      background-color: @bgcolor;
+      width: 815px;
+      line-height: 30px;
+      font-size: 20px;
+      padding: 25px;
+
+      .writerBasic {
+         height: 50px;
+         width: 500px;
+         display: inline-block;
+         margin: 15px 0;
+
+         img {
+            height: 50px;
+            float: left;
+            margin-right: 10px;
+         }
+
       }
     }
   }
 
-  .detail {
-    margin-left: 35px;
-
-    float: left;
-    background-color: #ffffff;
-    width: 815px;
-    line-height: 30px;
-    font-size: 20px;
-    padding: 25px;
-
-    .writerBasic {
-      height: 50px;
-      width: 500px;
-      display: inline-block;
-      margin: 15px 0;
+   .writer {
+      margin-left: 20px;
+      width: 300px;
+      background-color: @bgcolor;
+      float: left;
+      height: 100px;
 
       img {
         height: 50px;
@@ -143,11 +186,13 @@ export default {
     float: left;
     height: 100px;
 
-    img {
-      width: 50px;
-      margin: 15px 15px;
-    }
-  }
+   .more {
+      margin-left: 20px;
+      margin-top: 20px;
+      width: 300px;
+      // height: 540px;
+      background-color: @bgcolor;
+      float: left;
 
   .more {
     margin-left: 20px;
@@ -164,9 +209,13 @@ export default {
         font-size: 20px;
       }
 
-      .item {
-        margin: 20px 0px;
-        font-size: 15px;
+   .catalogue {
+      margin-left: 20px;
+      margin-top: 20px;
+      width: 300px;
+      height: 535px;
+      background-color: @bgcolor;
+      float: left;
 
         .num {
           color: #7e7d7d;
@@ -185,13 +234,15 @@ export default {
     float: left;
   }
 
-  .next {
-    margin-left: 20px;
-    margin-top: 20px;
-    width: 300px;
-    height: 115px;
-    background-color: #ffffff;
-    float: left;
-  }
+   }
+
+   .next {
+      margin-left: 20px;
+      margin-top: 20px;
+      width: 300px;
+      height: 115px;
+      background-color: @bgcolor;
+      float: left;
+   }
 }
 </style>
