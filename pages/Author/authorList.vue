@@ -21,30 +21,12 @@
     <div class="user-body user-top">
         <div class="header-block">🎖️作者榜</div>
         <div class="user-list">
-            <div class="item">
+            <div class="item" v-for="(item,index) in author" :key="index">
                 <div class="item__img-box">
-                    <img src="https://p3-passport.byteacctimg.com/img/mosaic-legacy/3792/5112637127~300x300.image" alt="">
+                    <img :src="baseUrl+item.profilephoto.url" alt="">
                 </div>
                 <div class="item__user-info">
-                    小明同学
-                    <img src="~/assets/img/lv-2.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="item__img-box">
-                    <img src="https://p9-passport.byteacctimg.com/img/mosaic-legacy/3793/3131589739~300x300.image" alt="">
-                </div>
-                <div class="item__user-info">
-                    小雨同学
-                    <img src="~/assets/img/lv-2.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="item__img-box">
-                    <img src="https://p9-passport.byteacctimg.com/img/mosaic-legacy/3796/2975850990~300x300.image" alt="">
-                </div>
-                <div class="item__user-info">
-                    小宋同学
+                    {{ item.profilename }}
                     <img src="~/assets/img/lv-2.png" alt="">
                 </div>
             </div>
@@ -59,31 +41,13 @@
     <div class="suspended" v-show="show" ref="suspendBox">
         <div class="sidebar__block user-top ">
             <div class="header-block">🎖️作者榜</div>
-            <div class="user-list">
+            <div class="user-list">        
                 <div class="item">
                     <div class="item__img-box">
-                        <img src="https://p3-passport.byteacctimg.com/img/mosaic-legacy/3792/5112637127~300x300.image" alt="">
+                        <img :src="this.ad.adv1.url" alt="">
                     </div>
                     <div class="item__user-info">
                         小明同学
-                        <img src="~/assets/img/lv-2.png" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img-box">
-                        <img src="https://p9-passport.byteacctimg.com/img/mosaic-legacy/3793/3131589739~300x300.image" alt="">
-                    </div>
-                    <div class="item__user-info">
-                        工匠若水
-                        <img src="~/assets/img/lv-2.png" alt="">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img-box">
-                        <img src="https://p9-passport.byteacctimg.com/img/mosaic-legacy/3796/2975850990~300x300.image" alt="">
-                    </div>
-                    <div class="item__user-info">
-                        固体物质搬运工
                         <img src="~/assets/img/lv-2.png" alt="">
                     </div>
                 </div>
@@ -103,8 +67,15 @@ export default {
     name:'authorList',
     data() {
         return {
-            show:false
+            show:false,
+            baseUrl:'/api'
         }
+    },
+    props:["ad","author"],
+    mounted() {
+        this.ad.adv1.url=this.baseUrl+this.ad.adv1.url;
+        this.ad.adv2.url=this.baseUrl+this.ad.adv2.url;
+        console.log(this.ad.adv2.url)
     },
 }
 </script>

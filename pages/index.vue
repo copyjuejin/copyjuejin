@@ -9,7 +9,7 @@
       <el-col :span="16" :offset="2"><articleList></articleList></el-col>
       <!-- 侧边栏 -->
       <el-col :span="4">
-        <authorList></authorList>
+        <authorList :ad="ad" :author="author"></authorList>
       </el-col>
     </el-row>
   </div>
@@ -37,7 +37,15 @@ export default Vue.extend({
     store.dispatch("article/A_UPDATE_TABS",{
         tabs:res.data
     })
-  }
+  },
+  async asyncData({ $axios, query }) {
+      let ad = await $axios({ url: "/api/advertisements" })
+      let author=await $axios({ url: "/api/authors" })
+      console.log(author.data)
+      return{ad:ad.data[0],author:author.data}
+     
+
+   },
 });
 </script>
 <style lang="less">

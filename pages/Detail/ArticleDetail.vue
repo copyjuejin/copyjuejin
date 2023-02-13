@@ -71,6 +71,7 @@ export default {
 
 </script>
 <style lang='less' scoped>
+@bgcolor:#ffffff;
 .all {
    width: 1500px;
 
@@ -91,7 +92,7 @@ export default {
          width: 50px;
          height: 50px;
          border-radius: 50%;
-         background-color: #ffffff;
+         background-color: @bgcolor;
          text-align: center;
          line-height: 50px;
          box-shadow: 10px;
@@ -111,7 +112,7 @@ export default {
 
             background-color: #666565;
             line-height: 13px;
-            color: #ffffff;
+            color: @bgcolor;
             border-radius: 5px;
          }
 
@@ -125,7 +126,7 @@ export default {
       margin-left: 35px;
 
       float: left;
-      background-color: #ffffff;
+      background-color: @bgcolor;
       width: 815px;
       line-height: 30px;
       font-size: 20px;
@@ -149,7 +150,7 @@ export default {
    .writer {
       margin-left: 20px;
       width: 300px;
-      background-color: #ffffff;
+      background-color: @bgcolor;
       float: left;
       height: 100px;
 
@@ -165,7 +166,7 @@ export default {
       margin-top: 20px;
       width: 300px;
       // height: 540px;
-      background-color: #ffffff;
+      background-color: @bgcolor;
       float: left;
 
       .context {
@@ -193,7 +194,7 @@ export default {
       margin-top: 20px;
       width: 300px;
       height: 535px;
-      background-color: #ffffff;
+      background-color: @bgcolor;
       float: left;
 
 
@@ -205,7 +206,7 @@ export default {
       margin-top: 20px;
       width: 300px;
       height: 115px;
-      background-color: #ffffff;
+      background-color: @bgcolor;
       float: left;
    }
 }
