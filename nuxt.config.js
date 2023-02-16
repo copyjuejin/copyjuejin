@@ -14,7 +14,8 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://cdn.bootcdn.net/ajax/libs/prism-themes/1.9.0/prism-atom-dark.css' }
-    ]
+    ],
+    
   },
 
   router:{
@@ -67,6 +68,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+    postcss:null
   },
   buildModules: ['@nuxt/typescript-build']
 }

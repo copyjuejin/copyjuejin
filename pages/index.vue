@@ -1,15 +1,17 @@
 <template>
   <div class="container">
-    <el-row type="flex">
+    <el-row>
       <!-- 文章tabs -->
       <el-col :span="24"><articleTab></articleTab></el-col>
     </el-row>
-    <el-row type="flex" class="main" :gutter="10">
+    <el-row class="main" :gutter="10">
       <!-- 文章列表 -->
-      <el-col :span="16" :offset="2"><articleList></articleList></el-col>
+      <el-col :span="listSpan" :offset="offset"
+        ><articleList></articleList
+      ></el-col>
       <!-- 侧边栏 -->
-      <el-col :span="4">
-        <authorList></authorList>
+      <el-col :span="4" id="author">
+        <authorList :ad="ad" :author="author"></authorList>
       </el-col>
     </el-row>
   </div>
@@ -25,24 +27,41 @@ export default Vue.extend({
   components: { articleTab, articleList, authorList, ArticleRendering },
   name: "IndexPage",
   data() {
-    return {};
+    return {
+      listSpan: 16,
+      offset: 2,
+      //author的display属性
+      display: "",
+    };
   },
   computed: {
     index() {
       return this.$store.state.index;
     },
-    sortIndex: {
-      get() {
-       /*  let res2 = this.$axios({
-          url: `/api/articles?article_tab=${this.index}`,
-        });
-        console.log(res2); */
-        return this.$store.state.sortIndex;
-      },
-      set() {},
+  },
+  watch: {
+    display:{
+      immediate:true,
+      handler(newValue,oldValue){
+        console.log(newValue,oldValue)
+        //如果是移动端
+        if (newValue == "none") {
+          this.listSpan = 24;
+          this.offset = 0;
+        }
+        //如果是PC端 
+        else if (newValue == "block") {
+          this.listSpan = 16;
+          this.offset = 2;
+        }
+    }
     },
   },
-  methods: {},
+  mounted() {
+    var author = document.getElementById("author");
+    //获取到display属性
+    this.display = window.getComputedStyle(author).getPropertyValue("display"); 
+  },
   async fetch({ $axios, store, app }) {
     let res = await $axios({ url: "/api/article-tabs" });
 
@@ -55,18 +74,50 @@ export default Vue.extend({
       sortTab: res1.data,
     });
   },
+  async asyncData({ $axios, query }) {
+    let ad = await $axios({ url: "/api/advertisements" });
+    let author = await $axios({ url: "/api/authors" });
+    //console.log(author.data);
+    return { ad: ad.data[0], author: author.data };
+    
+  },
 });
 </script>
 <style lang="less">
 * {
   padding: 0;
   margin: 0;
+  
+  
 }
 .container {
   background-color: #f4f4f4;
-  height: 1000px;
+  height:calc(100vh);
+  overflow-x:hidden
 }
 .main {
   margin-top: 20px;
+  
+}
+#author {
+  display: block;
+}
+//移动端
+@media screen and (min-device-width: 0px) and(max-device-width:767px) {
+  #author {
+    display: none;
+  }
+}
+//平板
+@media screen and (min-device-width: 768px)and(max-device-width:1199px) {
+  #author {
+    display: block;
+  }
+}
+//PC端
+@media screen and(min-device-width:1200px){
+   #author {
+    display: block;
+  }
 }
 </style>

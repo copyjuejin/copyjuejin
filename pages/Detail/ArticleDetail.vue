@@ -67,8 +67,8 @@ export default {
   components: { ArticleRendering },
 };
 </script>
-<style lang='less' scoped>
-@bgcolor:#ffffff;
+<style lang="less" scoped>
+@bgcolor: #ffffff;
 .all {
   width: 1500px;
 
@@ -95,37 +95,35 @@ export default {
       position: relative;
 
       li {
-         margin-top: 20px;
-         margin-bottom: 20px;
-         list-style-type: none;
-         font-size: 25px;
-         width: 50px;
-         height: 50px;
-         border-radius: 50%;
-         background-color: @bgcolor;
-         text-align: center;
-         line-height: 50px;
-         box-shadow: 10px;
-         position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        list-style-type: none;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: @bgcolor;
+        text-align: center;
+        line-height: 50px;
+        box-shadow: 10px;
+        position: relative;
 
-         &:nth-child(5) {
-            margin-top: 45px;
-         }
+        &:nth-child(5) {
+          margin-top: 45px;
+        }
 
-         span {
+        span {
+          height: 15px;
+          position: absolute;
+          left: 35px;
+          top: -5px;
+          font-size: 5px;
 
-            height: 15px;
-            position: absolute;
-            left: 35px;
-            top: -5px;
-            font-size: 5px;
-
-            background-color: #666565;
-            line-height: 13px;
-            color: @bgcolor;
-            border-radius: 5px;
-         }
-
+          background-color: #666565;
+          line-height: 13px;
+          color: @bgcolor;
+          border-radius: 5px;
+        }
       }
 
       span {
@@ -134,37 +132,34 @@ export default {
         left: 35px;
         top: -5px;
         font-size: 5px;
+      }
 
+      .detail {
+        margin-left: 35px;
 
-   }
+        float: left;
+        background-color: @bgcolor;
+        width: 815px;
+        line-height: 30px;
+        font-size: 20px;
+        padding: 25px;
 
-   .detail {
-      margin-left: 35px;
+        .writerBasic {
+          height: 50px;
+          width: 500px;
+          display: inline-block;
+          margin: 15px 0;
 
-      float: left;
-      background-color: @bgcolor;
-      width: 815px;
-      line-height: 30px;
-      font-size: 20px;
-      padding: 25px;
-
-      .writerBasic {
-         height: 50px;
-         width: 500px;
-         display: inline-block;
-         margin: 15px 0;
-
-         img {
+          img {
             height: 50px;
             float: left;
             margin-right: 10px;
-         }
-
+          }
+        }
       }
     }
-  }
 
-   .writer {
+    .writer {
       margin-left: 20px;
       width: 300px;
       background-color: @bgcolor;
@@ -186,7 +181,7 @@ export default {
     float: left;
     height: 100px;
 
-   .more {
+    .more {
       margin-left: 20px;
       margin-top: 20px;
       width: 300px;
@@ -194,55 +189,55 @@ export default {
       background-color: @bgcolor;
       float: left;
 
-  .more {
-    margin-left: 20px;
-    margin-top: 20px;
-    width: 300px;
-    // height: 540px;
-    background-color: #ffffff;
-    float: left;
+      .more {
+        margin-left: 20px;
+        margin-top: 20px;
+        width: 300px;
+        // height: 540px;
+        background-color: #ffffff;
+        float: left;
 
-    .context {
-      margin: 20px 20px;
+        .context {
+          margin: 20px 20px;
 
-      span {
-        font-size: 20px;
-      }
+          span {
+            font-size: 20px;
+          }
 
-   .catalogue {
-      margin-left: 20px;
-      margin-top: 20px;
-      width: 300px;
-      height: 535px;
-      background-color: @bgcolor;
-      float: left;
+          .catalogue {
+            margin-left: 20px;
+            margin-top: 20px;
+            width: 300px;
+            height: 535px;
+            background-color: @bgcolor;
+            float: left;
 
-        .num {
-          color: #7e7d7d;
-          margin-top: 5px;
+            .num {
+              color: #7e7d7d;
+              margin-top: 5px;
+            }
+          }
         }
       }
+
+      .catalogue {
+        margin-left: 20px;
+        margin-top: 20px;
+        width: 300px;
+        height: 535px;
+        background-color: #ffffff;
+        float: left;
+      }
     }
-  }
 
-  .catalogue {
-    margin-left: 20px;
-    margin-top: 20px;
-    width: 300px;
-    height: 535px;
-    background-color: #ffffff;
-    float: left;
-  }
-
-   }
-
-   .next {
+    .next {
       margin-left: 20px;
       margin-top: 20px;
       width: 300px;
       height: 115px;
       background-color: @bgcolor;
       float: left;
-   }
+    }
+  }
 }
 </style>

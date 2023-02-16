@@ -39,7 +39,7 @@ export default {
     },
     activeName:{
       get(){
-        return this.tabs[0].tabs//默认值
+        return '综合'//默认值
       },
       //点击标签时改变activeName
       set(){}
@@ -72,6 +72,16 @@ export default {
   .tabs {
     width: 90%;
     margin-left: 10%;
+  }
+}
+@media screen and (min-device-width: 1200px) {
+  .artcleTab .tabs{
+    margin-left: 10%;
+  }
+}
+@media screen and (min-device-width: 0px) and(max-device-width:1199px) {
+  .artcleTab .tabs{
+    margin-left: 5%;
   }
 }
 </style>
