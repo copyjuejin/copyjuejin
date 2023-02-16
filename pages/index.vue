@@ -6,11 +6,11 @@
     </el-row>
     <el-row class="main" :gutter="10">
       <!-- 文章列表 -->
-      <el-col :span="listSpan" :offset="offset"
-        ><articleList></articleList
-      ></el-col>
+      <el-col id="article" :span="listSpan" >
+        <articleList></articleList>
+      </el-col>
       <!-- 侧边栏 -->
-      <el-col :span="4" id="author">
+      <el-col id="author" :span="4" >
         <authorList :ad="ad" :author="author"></authorList>
       </el-col>
     </el-row>
@@ -29,7 +29,7 @@ export default Vue.extend({
   data() {
     return {
       listSpan: 16,
-      offset: 2,
+      //offset: 2,
       //author的display属性
       display: "",
     };
@@ -40,27 +40,27 @@ export default Vue.extend({
     },
   },
   watch: {
-    display:{
-      immediate:true,
-      handler(newValue,oldValue){
-        console.log(newValue,oldValue)
+    display: {
+      immediate: true,
+      handler(newValue, oldValue) {
+        console.log(newValue, oldValue);
         //如果是移动端
         if (newValue == "none") {
           this.listSpan = 24;
-          this.offset = 0;
+          //this.offset = 0;
         }
-        //如果是PC端 
+        //如果是PC端
         else if (newValue == "block") {
           this.listSpan = 16;
-          this.offset = 2;
+          //this.offset = 2;
         }
-    }
+      },
     },
   },
   mounted() {
     var author = document.getElementById("author");
     //获取到display属性
-    this.display = window.getComputedStyle(author).getPropertyValue("display"); 
+    this.display = window.getComputedStyle(author).getPropertyValue("display");
   },
   async fetch({ $axios, store, app }) {
     let res = await $axios({ url: "/api/article-tabs" });
@@ -79,45 +79,48 @@ export default Vue.extend({
     let author = await $axios({ url: "/api/authors" });
     //console.log(author.data);
     return { ad: ad.data[0], author: author.data };
-    
   },
 });
 </script>
-<style lang="less">
+<style lang="less" >
 * {
   padding: 0;
   margin: 0;
-  
-  
 }
 .container {
   background-color: #f4f4f4;
-  height:calc(100vh);
-  overflow-x:hidden
+  height: calc(100vh);
+  overflow-x: hidden;
+  .main {
+    margin-top: 20px;
+  }
 }
-.main {
-  margin-top: 20px;
-  
-}
-#author {
-  display: block;
-}
+
 //移动端
 @media screen and (min-device-width: 0px) and(max-device-width:767px) {
   #author {
     display: none;
   }
+  #article{
+      margin-left: 0%;
+  }
 }
 //平板
-@media screen and (min-device-width: 768px)and(max-device-width:1199px) {
+@media screen and (min-device-width: 768px) and(max-device-width:1199px) {
   #author {
     display: block;
   }
+  #article{
+      margin-left: 5%;
+  }
 }
 //PC端
-@media screen and(min-device-width:1200px){
-   #author {
+@media screen and(min-device-width:1200px) {
+  #author {
     display: block;
+  }
+  #article{
+      margin-left: 10%;
   }
 }
 </style>
