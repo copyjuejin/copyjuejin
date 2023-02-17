@@ -12,7 +12,8 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://cdn.bootcdn.net/ajax/libs/prism-themes/1.9.0/prism-atom-dark.css' }
     ]
   },
 
@@ -27,6 +28,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
+    '@/plugins/axios.js',
+    '@/plugins/api.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,27 +46,27 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
- 
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
-    
+
   },
- 
+
   proxy: {
     '/api': {
       target: 'http://101.34.46.50:1337',
       pathRewrite: {
-        '^/api': '',  
+        '^/api': '',
         changeOrigin: true // 是否跨域
       }
     },
-    
+
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
   },
-  buildModules: ['@nuxt/typescript-build'] 
+  buildModules: ['@nuxt/typescript-build']
 }
