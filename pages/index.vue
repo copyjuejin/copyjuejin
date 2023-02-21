@@ -20,11 +20,10 @@
 <script>
 import Vue from "vue";
 import articleTab from "./Article/articleTab.vue";
-import ArticleRendering from "./Article/ArticleRendering.vue";
 import articleList from "./Article/articleList.vue";
 import authorList from "./Author/authorList.vue";
 export default Vue.extend({
-  components: { articleTab, articleList, authorList, ArticleRendering },
+  components: { articleTab, articleList, authorList },
   name: "IndexPage",
   data() {
     return {
@@ -86,6 +85,10 @@ export default Vue.extend({
 * {
   padding: 0;
   margin: 0;
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }
 .container {
   background-color: #f4f4f4;
