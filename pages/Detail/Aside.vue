@@ -60,12 +60,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
 @bgcolor: #ffffff;
 
 
 .writer {
-    margin-left: 20px;
-    width: 300px;
+   
+    width: 100%;
     background-color: @bgcolor;
     float: left;
     height: 100px;
@@ -77,9 +78,9 @@ export default {
 
 
 .more {
-    margin-left: 20px;
+    
     margin-top: 20px;
-    width: 300px;
+    width:100%;
     background-color:@bgcolor;
     float: left;
 
@@ -103,10 +104,10 @@ export default {
 }
 
 .catalogue {
-    margin-left: 20px;
+    
     margin-top: 20px;
-    width: 300px;
-    height: 500px;
+    width: 100%;
+   
     background-color: @bgcolor;
     float: left;
     .name{
