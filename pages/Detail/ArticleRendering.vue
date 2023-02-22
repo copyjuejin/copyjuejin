@@ -98,5 +98,7 @@ function generateCopyButton (that) {
   </div>
 </template>
 <style scoped lang="less">
-
+*{
+  width: 100%;
+}
 </style>

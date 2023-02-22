@@ -50,24 +50,23 @@ export default {
   components: { ArticleRendering, Aside, ArticleTab },
 };
 </script>
-<style lang="less" >
+<style lang="less">
 @bgcolor: #ffffff;
-
+@indexcolor:#f4f4f4;
 * {
+
   margin: 0px;
   padding: 0px;
   /* css3盒子模型 */
   box-sizing: border-box;
-
   .all {
-    background-color: #f4f4f5;
+    background-color:@indexcolor;
     display: inline-block;
-
+    width: 100%;
     a {
       color: black;
       text-decoration: none;
     }
-
     li {
       list-style-type: none;
     }
@@ -92,7 +91,7 @@ export default {
           width: 50px;
           height: 50px;
           border-radius: 50%;
-          background-color: #ffffff;
+          background-color: @bgcolor;
           text-align: center;
           line-height: 50px;
           box-shadow: 10px;
@@ -128,9 +127,9 @@ export default {
         width: 65%;
         line-height: 30px;
         font-size: 20px;
-        padding: 25px;
-
-
+        padding: 2%;
+        box-shadow: 1px 1px 1px 1px rgb(165, 163, 163);
+        border-radius: 5px;
       }
 
       .aside {
@@ -138,35 +137,30 @@ export default {
         width: 20%;
         margin-top: 20px;
         margin-left: 2%;
-
+        background-color: @indexcolor;
+        border-radius: 5px;
+      
       }
 
       @media screen and(max-device-width:1199px) {
-        .aside {
-          display: none;
-        }
-
-        .all {
-          width: 100%;
-        }
-
-        .main {
-          width: 100%;
-        }
-
+        
+       
+   .aside{
+    width: 100%;
+    float: left;
+    margin-left: 0px;
+   }
         .detail {
           width: 100%;
           margin-top: 15px;
           margin-left: 0px;
           float: none;
-          padding: 0px;
-
+          padding: 2%;        
         }
 
         .function {
           display: none;
         }
-
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="writer">
-            <img :src="writerJpg" />{{ info.writer }}<br />{{ info.time }}
+            <div ><img :src="writerJpg" /></div><div class="writerInfo">{{ info.writer }}</div><br><br><br>&nbsp;&nbsp;&nbsp;{{ info.time.slice(0,10) }}
         </div>
         <div class="more">
             <div class="context">
@@ -16,7 +16,7 @@
                         query: { id: item.id, sort: item.article_tab },
                     }" target="_blank">{{ item.title }}<br />
                         <div class="num">
-                            {{ item.like }}点赞&nbsp·&nbsp{{ item.comment }}评论
+                            {{ item.like }}点赞&nbsp;·&nbsp;{{ item.comment }}评论
                         </div>
                     </NuxtLink>
                 </div>
@@ -60,25 +60,45 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+@media screen and(max-device-width:1199px) {
+    .writer{
+        display: none;
+       
+    }
+    .catalogue{
+        display: none;
+    }
+    .more{
+        width: 100%;
+        
+    }
+}
 @bgcolor: #ffffff;
 
-
 .writer {
-   
+    border-radius: 8px;
     width: 100%;
     background-color: @bgcolor;
     float: left;
     height: 100px;
-
     img {
         width: 50px;
+       margin-left: 30px;
+       margin-top: 20px;
+       float: left;
     }
+     .writerInfo{
+         
+   margin-top: 25px;
+   float: left;
+   margin-left: 15px;
+}
+   
 }
 
 
 .more {
-    
+    border-radius: 8px;
     margin-top: 20px;
     width:100%;
     background-color:@bgcolor;
@@ -104,12 +124,14 @@ export default {
 }
 
 .catalogue {
-    
+    border-radius: 8px;
     margin-top: 20px;
     width: 100%;
-   
+    position: sticky;
+    top: 50px;
     background-color: @bgcolor;
     float: left;
+    
     .name{
         width: 85%;
         margin: 15px auto;
@@ -124,4 +146,5 @@ export default {
     }
     
 }
+
 </style>
