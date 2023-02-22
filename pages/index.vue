@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+     <el-row>
+      <!-- 顶部tabs -->
+      <el-col :span="24"><tabs :headers="headers"></tabs></el-col>
+    </el-row>
     <el-row>
       <!-- 文章tabs -->
       <el-col :span="24"><articleTab></articleTab></el-col>
@@ -22,8 +26,9 @@ import Vue from "vue";
 import articleTab from "./Article/articleTab.vue";
 import articleList from "./Article/articleList.vue";
 import authorList from "./Author/authorList.vue";
+import tabs from './Tabs/tabs.vue'
 export default Vue.extend({
-  components: { articleTab, articleList, authorList },
+  components: { articleTab, articleList, authorList,tabs },
   name: "IndexPage",
   data() {
     return {
@@ -63,9 +68,7 @@ export default Vue.extend({
   },
   async fetch({ $axios, store, app }) {
     let res = await $axios({ url: "/api/article-tabs" });
-
     let res1 = await $axios({ url: "/api/syntheses" });
-
     store.dispatch("article/A_UPDATE_TABS", {
       tabs: res.data,
     });
@@ -76,8 +79,9 @@ export default Vue.extend({
   async asyncData({ $axios, query }) {
     let ad = await $axios({ url: "/api/advertisements" });
     let author = await $axios({ url: "/api/authors" });
+    let headers=await $axios({url:'/api/headers'});
     //console.log(author.data);
-    return { ad: ad.data[0], author: author.data };
+    return { ad: ad.data[0], author: author.data,headers:headers.data };
   },
 });
 </script>
@@ -105,7 +109,7 @@ export default Vue.extend({
     display: none;
   }
   #article{
-      margin-left: 0%;
+    margin-left: 0%;
   }
 }
 //平板
