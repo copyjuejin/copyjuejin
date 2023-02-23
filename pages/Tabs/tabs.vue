@@ -23,7 +23,7 @@
         </el-tab-pane>
         </el-badge>
       </el-tabs>
-    <i class="el-icon-sunny"></i>
+    <i id="styleControl" class="el-icon-sunny" @click="changeStyle"></i>
   </div>
 </template>
 
@@ -34,7 +34,8 @@ export default {
   data() {
     return {
       index:1,
-      url:''
+      url:'',
+      checked:'false'
     };
   },
   methods: {
@@ -42,6 +43,15 @@ export default {
     handleClick(tab, event) {
       this.index=tab.index//获取tabs数组坐标
     },
+    changeStyle(){ 
+      let html=document.querySelector('html');
+      let t=document.getElementById('styleControl');
+      if(this.checked){
+          
+           html.style.filter="invert(1) hue-rotate(180deg)";
+           this.checked=!this.checked;}
+           else{ html.style.filter="";this.checked=!this.checked;}
+    }
   },
   computed: {
     activeName:{

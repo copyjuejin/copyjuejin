@@ -1,7 +1,11 @@
 <template>
     <div>
         <div class="writer">
+<<<<<<< HEAD
             <div ><img :src="writerJpg" /></div><div class="writerInfo">{{ info.writer }}</div><br><br><br>&nbsp;&nbsp;&nbsp;{{ info.time.slice(0,10) }}
+=======
+            <div ><img :src="writerJpg" /></div><div class="writerInfo">{{ manager.name }}</div><br><br><br>&nbsp;&nbsp;&nbsp;{{ manager.introduction}}
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
         </div>
         <div class="more">
             <div class="context">
@@ -34,10 +38,14 @@
 </template>
 
 <script lang="js">
+
+
 export default {
-    props: ["more", "info"],
-    mounted() {
-        this.writerJpg += this.info.writerJpg[0].url;
+    props: ["more", "manager"],
+    mounted() { 
+        this.writerJpg += this.manager.jpg[0].url;
+        this.$nextTick(function(){
+       
         let h = document.querySelectorAll("h2");
         let ul = document.getElementById('catelogue')
 
@@ -47,8 +55,12 @@ export default {
         li.innerHTML = "<a href=#" + i.innerHTML + ">" + i.innerHTML + "</a>";
         li.style.margin="10px 0px"
     ul.appendChild(li); })
+<<<<<<< HEAD
 
     },
+=======
+        })},
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
     data() {
         return {
             writerJpg: "/api",
@@ -70,7 +82,11 @@ export default {
     }
     .more{
         width: 100%;
+<<<<<<< HEAD
         
+=======
+        float:none;
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
     }
 }
 @bgcolor: #ffffff;
@@ -105,7 +121,11 @@ export default {
     float: left;
 
     .context {
+<<<<<<< HEAD
         margin: 20px 20px;
+=======
+        margin: 2% 2%;
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
 
         .item {
             margin-top: 15px;

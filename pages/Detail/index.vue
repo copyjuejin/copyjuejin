@@ -3,7 +3,10 @@
 
     <div class="main">
      <Tabs :headers="headers"></Tabs>
+<<<<<<< HEAD
       <ArticleTab></ArticleTab>
+=======
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
       <!-- 功能块 -->
       <div class="function">
         <ul>
@@ -20,10 +23,10 @@
       </div>
       <!-- 文章 -->
       <div class="detail">
-        <ArticleRendering></ArticleRendering>
+        <ArticleRendering :info="info"></ArticleRendering>
       </div>
       <div class="aside">
-        <Aside :more="more" :info="info"></Aside>
+        <Aside :more="more" :manager="manager"></Aside>
       </div>
     </div>
   </div>
@@ -32,12 +35,16 @@
 import ArticleRendering from "./ArticleRendering.vue";
 import Aside from "./Aside.vue";
 import Tabs from "../Tabs/tabs.vue";
+<<<<<<< HEAD
 import ArticleTab from "../Article/articleTab.vue";
+=======
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
 export default {
   name: "IndexPage",
   async asyncData({ $axios, query }) {
     let a = await $axios({ url: `/api/articles/${query.id}` })
     let b = await $axios({ url: `/api/article-tabs/${query.sort}?_limit=5` })
+<<<<<<< HEAD
     let headers=await $axios({url:'/api/headers'});
     return { info: a.data, more: b.data.articles,headers:headers.data }
   },
@@ -50,6 +57,17 @@ export default {
 
 
   components: { ArticleRendering, Aside, ArticleTab,Tabs },
+=======
+    let manager=await $axios({url:'/api/managers'});
+    let headers=await $axios({url:'/api/headers'});
+console.log(manager.data[0].jpg[0].url)
+    return { info: a.data, more: b.data.articles,headers:headers.data,manager:manager.data[0]}
+  },
+ 
+
+
+  components: { ArticleRendering, Aside,Tabs },
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
 };
 </script>
 <style lang="less">
@@ -146,11 +164,19 @@ export default {
 
       @media screen and(max-device-width:1199px) {
         
+<<<<<<< HEAD
        
+=======
+      
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
    .aside{
     width: 100%;
     float: left;
     margin-left: 0px;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
    }
         .detail {
           width: 100%;
@@ -158,6 +184,12 @@ export default {
           margin-left: 0px;
           float: none;
           padding: 2%;        
+<<<<<<< HEAD
+=======
+          font-size: 1px;
+          box-shadow:none;
+          overflow-x: hidden;
+>>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
         }
 
         .function {
