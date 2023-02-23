@@ -146,7 +146,7 @@ console.log(manager.data[0].jpg[0].url)
     width: 100%;
     float: left;
     margin-left: 0px;
-    display: none;
+    
    }
         .detail {
           width: 100%;

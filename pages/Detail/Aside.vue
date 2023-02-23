@@ -108,7 +108,7 @@ export default {
     float: left;
 
     .context {
-        margin: 20px 20px;
+        margin: 2% 2%;
 
         .item {
             margin-top: 15px;
