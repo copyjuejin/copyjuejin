@@ -4,9 +4,12 @@
     <div class="main">
      <Tabs :headers="headers"></Tabs>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ArticleTab></ArticleTab>
 =======
 >>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
+=======
+>>>>>>> ce47a310ff1685b46ba1a504306068d5e7f7a915
       <!-- 功能块 -->
       <div class="function">
         <ul>
@@ -36,26 +39,30 @@ import ArticleRendering from "./ArticleRendering.vue";
 import Aside from "./Aside.vue";
 import Tabs from "../Tabs/tabs.vue";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ArticleTab from "../Article/articleTab.vue";
 =======
 >>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
+=======
+>>>>>>> ce47a310ff1685b46ba1a504306068d5e7f7a915
 export default {
   name: "IndexPage",
   async asyncData({ $axios, query }) {
     let a = await $axios({ url: `/api/articles/${query.id}` })
     let b = await $axios({ url: `/api/article-tabs/${query.sort}?_limit=5` })
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    let manager=await $axios({url:'/api/managers'});
+>>>>>>> ce47a310ff1685b46ba1a504306068d5e7f7a915
     let headers=await $axios({url:'/api/headers'});
-    return { info: a.data, more: b.data.articles,headers:headers.data }
+console.log(manager.data[0].jpg[0].url)
+    return { info: a.data, more: b.data.articles,headers:headers.data,manager:manager.data[0]}
   },
-  async fetch({ $axios, store, app }) {
-    let res = await $axios({ url: "/api/article-tabs" })
-    store.dispatch("article/A_UPDATE_TABS", {
-      tabs: res.data
-    })
-  },
+ 
 
 
+<<<<<<< HEAD
   components: { ArticleRendering, Aside, ArticleTab,Tabs },
 =======
     let manager=await $axios({url:'/api/managers'});
@@ -68,6 +75,9 @@ console.log(manager.data[0].jpg[0].url)
 
   components: { ArticleRendering, Aside,Tabs },
 >>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
+=======
+  components: { ArticleRendering, Aside,Tabs },
+>>>>>>> ce47a310ff1685b46ba1a504306068d5e7f7a915
 };
 </script>
 <style lang="less">
@@ -164,19 +174,14 @@ console.log(manager.data[0].jpg[0].url)
 
       @media screen and(max-device-width:1199px) {
         
-<<<<<<< HEAD
-       
-=======
-      
->>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
+  
+
    .aside{
     width: 100%;
     float: left;
     margin-left: 0px;
-<<<<<<< HEAD
-=======
-    
->>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
+    display: none;
+
    }
         .detail {
           width: 100%;
@@ -184,12 +189,14 @@ console.log(manager.data[0].jpg[0].url)
           margin-left: 0px;
           float: none;
           padding: 2%;        
-<<<<<<< HEAD
-=======
+
           font-size: 1px;
           box-shadow:none;
           overflow-x: hidden;
->>>>>>> 8bd417667835c8fb90415d59fc699d2236f0bccc
+
+          font-size: 1px;
+          box-shadow:none;
+          overflow-x: hidden;
         }
 
         .function {
