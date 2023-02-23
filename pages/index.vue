@@ -80,7 +80,6 @@ export default Vue.extend({
     let ad = await $axios({ url: "/api/advertisements" });
     let author = await $axios({ url: "/api/authors" });
     let headers=await $axios({url:'/api/headers'});
-    console.log(headers)
     //console.log(author.data);
     return { ad: ad.data[0], author: author.data,headers:headers.data };
   },

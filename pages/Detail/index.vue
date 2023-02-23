@@ -3,7 +3,6 @@
 
     <div class="main">
      <Tabs :headers="headers"></Tabs>
-      <ArticleTab></ArticleTab>
       <!-- 功能块 -->
       <div class="function">
         <ul>
@@ -20,10 +19,10 @@
       </div>
       <!-- 文章 -->
       <div class="detail">
-        <ArticleRendering></ArticleRendering>
+        <ArticleRendering :info="info"></ArticleRendering>
       </div>
       <div class="aside">
-        <Aside :more="more" :info="info"></Aside>
+        <Aside :more="more" :manager="manager"></Aside>
       </div>
     </div>
   </div>
@@ -32,24 +31,20 @@
 import ArticleRendering from "./ArticleRendering.vue";
 import Aside from "./Aside.vue";
 import Tabs from "../Tabs/tabs.vue";
-import ArticleTab from "../Article/articleTab.vue";
 export default {
   name: "IndexPage",
   async asyncData({ $axios, query }) {
     let a = await $axios({ url: `/api/articles/${query.id}` })
     let b = await $axios({ url: `/api/article-tabs/${query.sort}?_limit=5` })
+    let manager=await $axios({url:'/api/managers'});
     let headers=await $axios({url:'/api/headers'});
-    return { info: a.data, more: b.data.articles,headers:headers.data }
+console.log(manager.data[0].jpg[0].url)
+    return { info: a.data, more: b.data.articles,headers:headers.data,manager:manager.data[0]}
   },
-  async fetch({ $axios, store, app }) {
-    let res = await $axios({ url: "/api/article-tabs" })
-    store.dispatch("article/A_UPDATE_TABS", {
-      tabs: res.data
-    })
-  },
+ 
 
 
-  components: { ArticleRendering, Aside, ArticleTab,Tabs },
+  components: { ArticleRendering, Aside,Tabs },
 };
 </script>
 <style lang="less">
@@ -146,11 +141,12 @@ export default {
 
       @media screen and(max-device-width:1199px) {
         
-       
+      
    .aside{
     width: 100%;
     float: left;
     margin-left: 0px;
+    display: none;
    }
         .detail {
           width: 100%;
@@ -158,6 +154,9 @@ export default {
           margin-left: 0px;
           float: none;
           padding: 2%;        
+          font-size: 1px;
+          box-shadow:none;
+          overflow-x: hidden;
         }
 
         .function {

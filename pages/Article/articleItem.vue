@@ -14,15 +14,15 @@
           {{ listItem.intro }}
         </div>
         <div class="bottom">
-          <i class="el-icon-view">&nbsp{{ listItem.read }}</i>
+          <i class="el-icon-view">&nbsp;{{ listItem.read }}</i>
           <div class="like">
            <img
             style="width: 14px; height: 14px"
             src="../../assets/img/like.png"
             >
-            &nbsp{{ listItem.like }}</img>
+            &nbsp;{{ listItem.like }}</img>
             </div>
-          <i class="el-icon-chat-round">&nbsp{{ listItem.comment }}</i>
+          <i class="el-icon-chat-round">&nbsp;{{ listItem.comment }}</i>
         </div>
       </div>
       <div class="right" v-if="show_img">
